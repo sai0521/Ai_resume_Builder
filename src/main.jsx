@@ -7,6 +7,7 @@ import Sign_in from '../routes/Sign_in.jsx'
 import Home from '../routes/Home.jsx'
 import { ClerkProvider } from '@clerk/clerk-react'
 import Dashboard from '../routes/Dashboard.jsx'
+import PersonalDetails from '../routes/PersonalDetails.jsx'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -15,8 +16,12 @@ const r = createBrowserRouter([
     element:<App/>,
     children:[
       {
-        path:'dashboard',
+        path:'/dashboard',
         element:<Dashboard/>
+      },
+      {
+        path:'/PersonalDetails',
+        element:<PersonalDetails/>
       }
     ]
   }

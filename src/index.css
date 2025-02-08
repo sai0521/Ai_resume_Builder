@@ -3,3 +3,18 @@
 body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
   }
+
+  .input-style {
+    @apply border rounded mb-3 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+  .my-next-btn{
+    @apply border px-4 py-2 rounded bg-blue-500 text-white   hover:bg-blue-600 
+  }
+
+  .my-back-btn{
+    @apply border px-4 py-2 rounded bg-gray-400 text-white   hover:bg-gray-600
+  }
+
+  .input-div{
+    @apply flex flex-col w-full sm:w-1/2 gap-2 p-2
+  }
