@@ -1,9 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { useActionData, useNavigate } from 'react-router-dom';
+import { useAuth } from '../src/AuthContext';
+
 
 const Namebox = ({ setFl }) => {
+    const {name,setName} = useAuth()
+    const[message,setmessage]=useState("");
+
+    const navigate = useNavigate();
+
+    const handleName = (e)=>{
+        e.preventDefault();
+        if(name===''){
+            setmessage("Name is Required");
+        }
+        else{
+            setFl(false);
+            navigate(`/StartResume`,{state:name});
+        }
+    }
+
     return (
-        <div className=' h-[200px] w-[350px]  shadow-2xl flex items-center justify-center rounded-lg' >
+        <div className=' h-[200px] w-[350px] bg-white  shadow-2xl flex items-center justify-center rounded-lg' >
 
             <form className='flex flex-col'>
 
@@ -12,24 +30,26 @@ const Namebox = ({ setFl }) => {
                 <label className=''>Enter the Name</label>
 
                 <input type="text" id="name" name="name" className='border rounded w-[300px] h-8 p-2'
-                    placeholder='eg. Personal Resume' />
+                    placeholder='eg. Personal Resume' required onChange={(e)=>{setName(e.target.value) ; setmessage("")}} />
+
+                
+              <div >
+                <p className='text-red-500 text-center'>{ `${message}`}</p>
+              </div>
 
                 <div className=' flex justify-end gap-6 pt-5'>
 
-                    <button className='border rounded h-8 w-14 transition-all transform hover:scale-110 '
+                    <button className='my-back-btn  '
                         onClick={(e) => {
                             e.preventDefault();
                             setFl(false);
                         }}>Cancel</button>
 
-                    <Link to={'/PersonalDetails'}>
+                    <button className='my-next-btn' type="submit"
+                        onClick={(e) => {
+                            handleName(e)
+                        }}>Next</button>
 
-                        <button className='my-btn' type="submit"
-                            onClick={(e) => {
-                                setFl(false);
-                            }}>Next</button>
-                            
-                    </Link>
 
                 </div>
 

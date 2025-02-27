@@ -14,7 +14,7 @@ const EducationDetails = ({ setData, setRes }) => {
                 ind === i ? { ...edu, [name]: e.target.value } : edu)
         }))
 
-        setSty(Array(resume.educationDetails.length).fill('border p-2 rounded'));
+        setSty(Array(resume.educationDetails.length).fill('border'));
 
 
 
@@ -94,7 +94,7 @@ const EducationDetails = ({ setData, setRes }) => {
 
                             <div className='input-div'>
 
-                                <lable>Start date</lable>
+                                <label>Start date</label>
 
                                 <input type="date" className="border p-2 rounded"  onChange={(e) => handleChange(ind, 'stDate' , e)}
                                     value={edu['stDate']} />
@@ -102,7 +102,7 @@ const EducationDetails = ({ setData, setRes }) => {
 
                             <div className='input-div'>
 
-                                <lable>End date</lable>
+                                <label>End date</label>
 
                                 <input type="date" className="border p-2 rounded"  onChange={(e) => handleChange(ind, 'endDate' , e)}
                                     value={edu['endDate']}/>
@@ -118,7 +118,7 @@ const EducationDetails = ({ setData, setRes }) => {
                 <button type="button" className="my-back-btn" onClick={() => setStep(step - 1)}> Back </button>
 
                 {resume.educationDetails.length < 3 &&
-                    <button type="button" className="my-next-btn" onClick={addNew}>Add New</button>}
+                    <button type="button" className="my-add-btn" onClick={addNew}>Add New</button>}
 
                 <button type="button" className="my-next-btn" onClick={()=>validate(setStep,step)}> Next</button>
             </div>

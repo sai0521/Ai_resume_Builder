@@ -35,7 +35,7 @@ const BasicDetails = ({ setData, setRes }) => {
           </div>
         ))}
 
-        <Description setData={{step,setStep}} setRes={{resume,setResume}}/>
+        {/* <Description setData={{step,setStep}} setRes={{resume,setResume}} Label={'Summary'}/> */}
 
         <div className="flex justify-end">
           <button type="button" className="my-next-btn" onClick={()=>validate(setStep,step)}> Next </button>
